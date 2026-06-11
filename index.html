@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Site educativo sobre agronegócio sustentável no Brasil: dados reais sobre desmatamento, biomas ameaçados e a importância de produzir mais sem expandir áreas." />
+  <meta name="keywords" content="agronegócio, sustentabilidade, biomas, desmatamento, cerrado, amazônia, agrinho" />
+  <meta name="author" content="Projeto Agrinho" />
+  <title>Agro Forte, Futuro Sustentável</title>
+
+  <!-- Tag obrigatória Agrinho -->
+  <meta name="agrinho" content="Agro forte, futuro sustentável: equilíbrio entre produção e meio ambiente" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Favicon inline SVG -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='16' fill='%231E2D24'/><text y='22' x='7' font-size='18'>🌱</text></svg>" />
+</head>
+<body>
+
+  <!-- Barra de progresso de leitura -->
+  <div id="progress-bar" role="progressbar" aria-label="Progresso de leitura da página"></div>
+
+  <!-- Botão voltar ao topo -->
+  <button id="btn-topo" aria-label="Voltar ao topo" style="
+    position:fixed; bottom:1.5rem; right:1.5rem; z-index:800;
+    width:44px; height:44px; border-radius:50%; border:none;
+    background:var(--verde-medio); color:#fff; font-size:1.1rem;
+    cursor:pointer; box-shadow:0 4px 16px rgba(0,0,0,0.2);
+    opacity:0; pointer-events:none; transition:opacity 0.3s, transform 0.2s;
+  " onmouseenter="this.style.transform='scale(1.1)'" onmouseleave="this.style.transform='scale(1)'">↑</button>
+
+  <!-- ═══════════════════════════════════════════════════════
+       NAVEGAÇÃO
+  ══════════════════════════════════════════════════════════ -->
+  <nav class="navbar" role="navigation" aria-label="Menu principal">
+    <div class="navbar-logo">
+      <span class="logo-dot" aria-hidden="true"></span>
+      Agro Sustentável
+    </div>
+    <ul class="navbar-links" id="navbar-links" role="menubar">
+      <li role="none"><a href="#brasil" role="menuitem">Brasil no Agro</a></li>
+      <li role="none"><a href="#desmate" role="menuitem">Desmatamento</a></li>
+      <li role="none"><a href="#comparativo" role="menuitem">Produção vs Área</a></li>
+      <li role="none"><a href="#biomas" role="menuitem">Biomas</a></li>
+      <li role="none"><a href="#solucao" role="menuitem">Solução</a></li>
+      <li role="none"><a href="#mitos" role="menuitem">Mitos</a></li>
+    </ul>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navbar-links">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════════════════════ -->
+  <header class="hero" role="banner">
+    <div class="hero-bg-pattern" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-badge" aria-label="Tema do projeto">🌱 Projeto Agrinho 2025</div>
+      <h1 class="hero-title">
+        Agro <span class="destaque">Forte</span>,<br>
+        Futuro <span class="alerta">Sustentável</span>
+      </h1>
+      <p class="hero-subtitle">
+        O Brasil é líder mundial em produção agrícola. Mas a expansão sem controle 
+        das fronteiras agropecuárias ameaça nossos biomas. Entenda por que podemos — 
+        e devemos — produzir <strong>mais</strong> ocupando <strong>menos</strong>.
+      </p>
+      <div class="hero-stats" role="list" aria-label="Dados em destaque">
+        <div class="hero-stat" role="listitem"
+          data-tooltip="Fonte: IBGE / CONAB, Safra 2023/24">
+          <span class="numero contador" data-contador="312" data-sufixo=" Mt" data-duracao="2000">0 Mt</span>
+          <span class="rotulo">Grãos produzidos em 2023/24</span>
+        </div>
+        <div class="hero-stat" role="listitem"
+          data-tooltip="Fonte: MapBiomas, Relatório Anual 2023">
+          <span class="numero contador" data-contador="59" data-sufixo=" Mha" data-duracao="1800">0 Mha</span>
+          <span class="rotulo">Vegetação nativa perdida desde 1985</span>
+        </div>
+        <div class="hero-stat" role="listitem"
+          data-tooltip="Fonte: MAPA/EMBRAPA — Brasil é 1º em soja, café, laranja, carne bovina e cana">
+          <span class="numero contador" data-contador="5" data-sufixo="º lugar" data-duracao="1500">0</span>
+          <span class="rotulo">Maior exportador agro do mundo</span>
+        </div>
+        <div class="hero-stat" role="listitem"
+          data-tooltip="Fonte: EMBRAPA — Produtividade cresceu enquanto área per capita caiu">
+          <span class="numero contador" data-contador="277" data-sufixo="%" data-duracao="2200">0%</span>
+          <span class="rotulo">Aumento de produção (1990–2023)</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <span>Role para explorar</span>
+      <div class="seta"></div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SEÇÃO 1 — O BRASIL NO AGRONEGÓCIO
+  ══════════════════════════════════════════════════════════ -->
+  <section class="sec-brasil" id="brasil" aria-labelledby="titulo-brasil">
+    <div class="container">
+      <p class="section-label reveal">O Brasil no cenário global</p>
+      <h2 class="section-titulo reveal" id="titulo-brasil">
+        Uma potência agrícola com <span>responsabilidade ambiental</span>
+      </h2>
+      <p class="section-desc reveal">
+        O agronegócio representa cerca de <strong>24,8% do PIB brasileiro</strong> (CEPEA/USP, 2023) 
+        e emprega 1 em cada 3 trabalhadores do país. Com tamanha relevância, o setor 
+        precisa crescer de forma inteligente — sem destruir os recursos naturais que 
+        sustentam sua própria existência.
+      </p>
+
+      <div class="cards-producao" role="list" aria-label="Dados de produção agropecuária">
+
+        <div class="card-prod reveal" role="listitem" data-tooltip="Brasil é o maior exportador de soja do mundo — Fonte: USDA 2024">
+          <div class="icone" aria-hidden="true">🌾</div>
+          <div class="valor">168 Mt</div>
+          <div class="etiqueta">Produção de soja em 2023/24<br>(recorde histórico)</div>
+          <div class="fonte">Fonte: CONAB, 2024</div>
+        </div>
+
+        <div class="card-prod reveal" role="listitem" data-tooltip="O Brasil mantém 66% do rebanho bovino em pastagens já consolidadas">
+          <div class="icone" aria-hidden="true">🐄</div>
+          <div class="valor">217 Mi</div>
+          <div class="etiqueta">Cabeças de bovinos<br>(maior rebanho comercial do mundo)</div>
+          <div class="fonte">Fonte: IBGE, 2023</div>
+        </div>
+
+        <div class="card-prod reveal" role="listitem" data-tooltip="O Brasil exportou US$ 166,5 bilhões em produtos agropecuários em 2023">
+          <div class="icone" aria-hidden="true">📦</div>
+          <div class="valor">US$ 166 bi</div>
+          <div class="etiqueta">Exportações agropecuárias<br>em 2023 (recorde)</div>
+          <div class="fonte">Fonte: MAPA, 2024</div>
+        </div>
+
+        <div class="card-prod reveal" role="listitem" data-tooltip="Área agrícola plantada cresceu em proporção menor que a produção — ganhos de produtividade">
+          <div class="icone" aria-hidden="true">🗺️</div>
+          <div class="valor">76 Mha</div>
+          <div class="etiqueta">Área plantada de lavouras<br>(grãos, frutas, hortaliças)</div>
+          <div class="fonte">Fonte: IBGE/MAPA, 2023</div>
+        </div>
+
+        <div class="card-prod alerta reveal" role="listitem" data-tooltip="Em 1990 o Brasil produzia ~60 Mt de grãos em área semelhante. Hoje produz 312 Mt — a produtividade mais que triplicou">
+          <div class="icone" aria-hidden="true">📈</div>
+          <div class="valor laranja">+277%</div>
+          <div class="etiqueta">Aumento de produção de grãos<br>entre 1990 e 2023/24</div>
+          <div class="fonte">Fonte: CONAB, 2024</div>
+        </div>
+
+        <div class="card-prod alerta reveal" role="listitem" data-tooltip="Fonte: MapBiomas 2023 — perda acumulada de vegetação nativa desde 1985">
+          <div class="icone" aria-hidden="true">🌳</div>
+          <div class="valor laranja">59 Mha</div>
+          <div class="etiqueta">Vegetação nativa perdida<br>entre 1985 e 2023</div>
+          <div class="fonte">Fonte: MapBiomas, 2023</div>
+        </div>
+
+      </div>
+
+      <div class="alerta-box reveal" role="note">
+        <strong>Por que isso importa?</strong> O Brasil possui apenas 8,5 milhões de km² de território, 
+        mas concentra <strong>mais de 12% de toda a água doce</strong> e <strong>cerca de 20% da 
+        biodiversidade</strong> do planeta (MMA, 2023). Preservar nossos biomas não é opção — 
+        é condição para que o próprio agronegócio continue existindo.
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SEÇÃO 2 — DESMATAMENTO POR BIOMA
+  ══════════════════════════════════════════════════════════ -->
+  <section class="sec-desmate" id="desmate" aria-labelledby="titulo-desmate">
+    <div class="container">
+      <p class="section-label reveal">Dados MapBiomas 2023</p>
+      <h2 class="section-titulo reveal" id="titulo-desmate">
+        Quanto cada bioma <span>já perdeu</span>
+      </h2>
+      <p class="section-desc reveal">
+        O mapeamento do uso da terra no Brasil revela a devastação acumulada desde 1985. 
+        As barras abaixo mostram o <strong>percentual de vegetação nativa já desmatada</strong> 
+        em cada bioma — não o total original, mas o que foi destruído até 2023.
+      </p>
+
+      <div class="barras-biomas reveal" role="list" aria-label="Percentual de vegetação nativa desmatada por bioma">
+
+        <!-- Mata Atlântica -->
+        <div class="bioma-linha" role="listitem" data-tooltip="A Mata Atlântica cobria ~15% do território brasileiro; hoje restam apenas 12-16% de fragmentos — Fonte: SOS Mata Atlântica 2023">
+          <div>
+            <div class="bioma-nome">Mata Atlântica</div>
+            <div class="legenda-bioma">Restam ~12-16% da cobertura original</div>
+          </div>
+          <div class="bioma-barra-wrap" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" aria-label="88% desmatado">
+            <div class="bioma-barra matatlant" data-largura="88"></div>
+          </div>
+          <div class="bioma-valor">88% perdido</div>
+        </div>
+
+        <!-- Cerrado -->
+        <div class="bioma-linha" role="listitem" data-tooltip="O Cerrado perdeu mais de 50% de sua vegetação nativa — considerado a savana mais biodiversa do mundo — Fonte: MapBiomas 2023">
+          <div>
+            <div class="bioma-nome">Cerrado</div>
+            <div class="legenda-bioma">Maior hotspot de biodiversidade do mundo</div>
+          </div>
+          <div class="bioma-barra-wrap" role="progressbar" aria-valuenow="52" aria-valuemin="0" aria-valuemax="100" aria-label="52% desmatado">
+            <div class="bioma-barra cerrado" data-largura="52"></div>
+          </div>
+          <div class="bioma-valor">52% perdido</div>
+        </div>
+
+        <!-- Caatinga -->
+        <div class="bioma-linha" role="listitem" data-tooltip="Único bioma exclusivamente brasileiro, a Caatinga já perdeu cerca de 45% de sua vegetação nativa — Fonte: MapBiomas 2023">
+          <div>
+            <div class="bioma-nome">Caatinga</div>
+            <div class="legenda-bioma">Único bioma exclusivamente brasileiro</div>
+          </div>
+          <div class="bioma-barra-wrap" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" aria-label="45% desmatado">
+            <div class="bioma-barra caatinga" data-largura="45"></div>
+          </div>
+          <div class="bioma-valor">45% perdido</div>
+        </div>
+
+        <!-- Pampa -->
+        <div class="bioma-linha" role="listitem" data-tooltip="O Pampa gaúcho perdeu mais de 53% de sua vegetação nativa — Fonte: MapBiomas 2023">
+          <div>
+            <div class="bioma-nome">Pampa</div>
+            <div class="legenda-bioma">Sul do Brasil, bioma de campos</div>
+          </div>
+          <div class="bioma-barra-wrap" role="progressbar" aria-valuenow="53" aria-valuemin="0" aria-valuemax="100" aria-label="53% desmatado">
+            <div class="bioma-barra pampa" data-largura="53"></div>
+          </div>
+          <div class="bioma-valor">53% perdido</div>
+        </div>
+
+        <!-- Pantanal -->
+        <div class="bioma-linha" role="listitem" data-tooltip="O Pantanal perdeu cerca de 24% de vegetação nativa entre 1985 e 2020 — Fonte: MapBiomas 2021">
+          <div>
+            <div class="bioma-nome">Pantanal</div>
+            <div class="legenda-bioma">Maior planície alagada do mundo</div>
+          </div>
+          <div class="bioma-barra-wrap" role="progressbar" aria-valuenow="24" aria-valuemin="0" aria-valuemax="100" aria-label="24% desmatado">
+            <div class="bioma-barra pantanal" data-largura="24"></div>
+          </div>
+          <div class="bioma-valor">24% perdido</div>
+        </div>
+
+        <!-- Amazônia -->
+        <div class="bioma-linha" role="listitem" data-tooltip="A Amazônia perdeu aproximadamente 20% de sua cobertura vegetal original — Fonte: INPE/MapBiomas 2023">
+          <div>
+            <div class="bioma-nome">Amazônia</div>
+            <div class="legenda-bioma">Maior floresta tropical do planeta</div>
+          </div>
+          <div class="bioma-barra-wrap" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" aria-label="20% desmatado">
+            <div class="bioma-barra amazonia" data-largura="20"></div>
+          </div>
+          <div class="bioma-valor">20% perdido</div>
+        </div>
+
+      </div>
+
+      <!-- ── GALERIA DE FOTOS DE IMPACTO ─────────────────────── -->
+      <div class="galeria-impacto reveal" style="margin-top:2.5rem;">
+        <p style="font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--laranja);margin-bottom:1rem;">📷 Registros reais — clique para ampliar</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;">
+
+          <!-- Foto 1: Fumaça Pantanal 2020 — NASA Terra MODIS — Domínio Público -->
+          <figure class="foto-impacto" style="margin:0;border-radius:var(--raio-lg);overflow:hidden;position:relative;cursor:zoom-in;" onclick="abrirModal(this)"
+            data-legenda="Incêndios devastadores no Pantanal (setembro de 2020). Uma 'cortina' de fumaça cobre centenas de km ao sul. Em 2020, o Pantanal perdeu aproximadamente 1/4 de toda a sua área — o pior registro histórico. Pecuária extensiva e seca severa foram as principais causas."
+            data-credito="NASA Earth Observatory — imagem do satélite Terra/MODIS, 6 set. 2020 · Domínio Público (obra do governo federal dos EUA)">
+            <img src="https://earthobservatory.nasa.gov/ContentWOC/images/147269/pantanal_tmo_2020251_lrg.jpg"
+              alt="Imagem de satélite NASA MODIS: fumaça de incêndios cobre o Pantanal em setembro de 2020"
+              loading="lazy" style="width:100%;height:210px;object-fit:cover;display:block;transition:transform 0.4s;"
+              onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'"
+            />
+            <figcaption style="position:absolute;bottom:0;left:0;right:0;padding:0.75rem 1rem;background:linear-gradient(transparent,rgba(0,0,0,0.88));color:#fff;font-size:0.72rem;line-height:1.4;">
+              <strong style="color:var(--laranja-claro);display:block;margin-bottom:2px;">🔥 Pantanal — fumaça sobre 1/4 do bioma (2020)</strong>
+              NASA Terra/MODIS · Domínio Público
+            </figcaption>
+          </figure>
+
+          <!-- Foto 2: Espinha de peixe Rondônia — NASA Landsat — Domínio Público -->
+          <figure class="foto-impacto" style="margin:0;border-radius:var(--raio-lg);overflow:hidden;position:relative;cursor:zoom-in;" onclick="abrirModal(this)"
+            data-legenda="Padrão 'espinha de peixe' de desmatamento em Rondônia. Estradas abertas no interior da floresta funcionam como vetores do desmatamento — que avança para os lados a partir delas. Este padrão é identificado por satélites desde os anos 1980 e evidencia o avanço sistemático sobre a Amazônia."
+            data-credito="NASA / USGS Landsat — Domínio Público (obra do governo federal dos EUA)">
+            <img src="https://earthobservatory.nasa.gov/ContentWOC/images/145649/rondonia_tm5_1984_2019.jpg"
+              alt="Padrão de desmatamento em espinha de peixe em Rondônia visto por satélite Landsat da NASA"
+              loading="lazy" style="width:100%;height:210px;object-fit:cover;display:block;transition:transform 0.4s;"
+              onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'"
+            />
+            <figcaption style="position:absolute;bottom:0;left:0;right:0;padding:0.75rem 1rem;background:linear-gradient(transparent,rgba(0,0,0,0.88));color:#fff;font-size:0.72rem;line-height:1.4;">
+              <strong style="color:var(--laranja-claro);display:block;margin-bottom:2px;">🗺️ Espinha de peixe — Rondônia (Landsat)</strong>
+              NASA / USGS · Domínio Público
+            </figcaption>
+          </figure>
+
+          <!-- Foto 3: Desmatamento Amazônia fronteira — Wikimedia CC BY 2.0 (CIFOR) -->
+          <figure class="foto-impacto" style="margin:0;border-radius:var(--raio-lg);overflow:hidden;position:relative;cursor:zoom-in;" onclick="abrirModal(this)"
+            data-legenda="Vista aérea da fronteira de desmatamento na Amazônia. A linha entre floresta intacta e terra destruída evidencia o avanço da agropecuária. Segundo o MapBiomas (2023), 65% do desmatamento amazônico está ligado à pecuária extensiva."
+            data-credito="CIFOR (Center for International Forestry Research) · CC BY 2.0 — via Wikimedia Commons">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Deforestation_in_the_Amazon_%2846200453914%29.jpg/1280px-Deforestation_in_the_Amazon_%2846200453914%29.jpg"
+              alt="Vista aérea da fronteira de desmatamento na Amazônia com floresta nativa de um lado e terra degradada do outro"
+              loading="lazy" style="width:100%;height:210px;object-fit:cover;display:block;transition:transform 0.4s;"
+              onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'"
+            />
+            <figcaption style="position:absolute;bottom:0;left:0;right:0;padding:0.75rem 1rem;background:linear-gradient(transparent,rgba(0,0,0,0.88));color:#fff;font-size:0.72rem;line-height:1.4;">
+              <strong style="color:var(--laranja-claro);display:block;margin-bottom:2px;">✂️ Fronteira do desmatamento — Amazônia</strong>
+              CIFOR · CC BY 2.0
+            </figcaption>
+          </figure>
+
+          <!-- Foto 4: Floresta Nacional do Jamanxim desmatada — Flickr/Ibama CC BY 2.0 -->
+          <figure class="foto-impacto" style="margin:0;border-radius:var(--raio-lg);overflow:hidden;position:relative;cursor:zoom-in;" onclick="abrirModal(this)"
+            data-legenda="Desmatamento ilegal na Floresta Nacional do Jamanxim, Pará. A floresta de proteção ambiental é invadida por pecuaristas e grileiros que derrubam árvores ilegalmente para abrir pastagens. O IBAMA realiza operações frequentes na região, mas a fiscalização é difícil pelo isolamento."
+            data-credito="IBAMA — Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais Renováveis · CC BY 2.0 — via Wikimedia Commons">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Floresta_Nacional_do_Jamanxim%2C_Par%C3%A1_%2823990861957%29.jpg/1280px-Floresta_Nacional_do_Jamanxim%2C_Par%C3%A1_%2823990861957%29.jpg"
+              alt="Área desmatada ilegalmente na Floresta Nacional do Jamanxim, no Pará, com tocos e terra exposta"
+              loading="lazy" style="width:100%;height:210px;object-fit:cover;display:block;transition:transform 0.4s;"
+              onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'"
+            />
+            <figcaption style="position:absolute;bottom:0;left:0;right:0;padding:0.75rem 1rem;background:linear-gradient(transparent,rgba(0,0,0,0.88));color:#fff;font-size:0.72rem;line-height:1.4;">
+              <strong style="color:var(--laranja-claro);display:block;margin-bottom:2px;">⛏️ Desmatamento ilegal — Fl. Nac. Jamanxim, PA</strong>
+              IBAMA · CC BY 2.0
+            </figcaption>
+          </figure>
+
+          <!-- Foto 5: Pivôs irrigação avançando Cerrado — NASA Landsat — Domínio Público -->
+          <figure class="foto-impacto" style="margin:0;border-radius:var(--raio-lg);overflow:hidden;position:relative;cursor:zoom-in;" onclick="abrirModal(this)"
+            data-legenda="Pivôs de irrigação avançando sobre o Cerrado, registrado pelo satélite Landsat da NASA. Os círculos representam lavouras irrigadas de alta produtividade — mas ao redor vê-se a vegetação nativa do Cerrado sendo eliminada. Em 2022, o Cerrado foi o bioma com maior velocidade de desmatamento no Brasil (INPE)."
+            data-credito="NASA / USGS Landsat · Domínio Público (obra do governo federal dos EUA)">
+            <img src="https://earthobservatory.nasa.gov/ContentWOC/images/86891/cerradopivots_oli_2013_lrg.jpg"
+              alt="Imagem de satélite mostrando pivôs circulares de irrigação avançando sobre a vegetação nativa do Cerrado"
+              loading="lazy" style="width:100%;height:210px;object-fit:cover;display:block;transition:transform 0.4s;"
+              onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'"
+              onerror="this.src='https://earthobservatory.nasa.gov/ContentWOC/images/146758/cerrado_oli_2019204.jpg'"
+            />
+            <figcaption style="position:absolute;bottom:0;left:0;right:0;padding:0.75rem 1rem;background:linear-gradient(transparent,rgba(0,0,0,0.88));color:#fff;font-size:0.72rem;line-height:1.4;">
+              <strong style="color:var(--laranja-claro);display:block;margin-bottom:2px;">💧 Pivôs sobre o Cerrado (NASA Landsat)</strong>
+              NASA / USGS · Domínio Público
+            </figcaption>
+          </figure>
+
+          <!-- Foto 6: Comunidade ribeirinha/indígena Amazônia — Wikimedia CC BY-SA 2.0 -->
+          <figure class="foto-impacto" style="margin:0;border-radius:var(--raio-lg);overflow:hidden;position:relative;cursor:zoom-in;" onclick="abrirModal(this)"
+            data-legenda="Comunidade ribeirinha na Amazônia. Povos tradicionais — indígenas, ribeirinhos e quilombolas — são os que mais sofrem com o avanço do desmatamento: perdem território, meios de vida, água limpa e identidade cultural. A Comissão Pastoral da Terra registrou mais de 300 conflitos fundiários relacionados ao agronegócio em 2022."
+            data-credito="Neil Palmer / CIAT (Center for International Tropical Agriculture) · CC BY-SA 2.0 — via Wikimedia Commons">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Amazon_village_%285568101069%29.jpg/1280px-Amazon_village_%285568101069%29.jpg"
+              alt="Comunidade ribeirinha na floresta amazônica, com pessoas e casas às margens do rio"
+              loading="lazy" style="width:100%;height:210px;object-fit:cover;display:block;transition:transform 0.4s;"
+              onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'"
+              onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Amazon_village.jpg/640px-Amazon_village.jpg'"
+            />
+            <figcaption style="position:absolute;bottom:0;left:0;right:0;padding:0.75rem 1rem;background:linear-gradient(transparent,rgba(0,0,0,0.88));color:#fff;font-size:0.72rem;line-height:1.4;">
+              <strong style="color:#7DD3A8;display:block;margin-bottom:2px;">👨‍👩‍👧 Comunidades que perdem espaço</strong>
+              Neil Palmer / CIAT · CC BY-SA 2.0
+            </figcaption>
+          </figure>
+
+        </div>
+        <p style="font-size:0.7rem;color:var(--cinza-claro);margin-top:0.75rem;text-align:right;line-height:1.5;">
+          📌 Imagens com licença de domínio público (NASA/USGS — governo federal dos EUA) ou Creative Commons (CC BY / CC BY-SA). Créditos indicados em cada foto.
+        </p>
+      </div>
+      <!-- ── FIM GALERIA ─────────────────────────────────────── -->
+
+      <div class="alerta-box reveal" role="note" style="margin-top:2rem;">
+        <strong>Atenção:</strong> Estudos do INPE e pesquisadores da USP indicam que 
+        a Amazônia pode atingir um <strong>"ponto de não retorno"</strong> caso o 
+        desmatamento ultrapasse 25% da cobertura original — podendo transformar partes 
+        da floresta em savana permanentemente, com impacto direto nas chuvas de todo 
+        o Centro-Sul do Brasil e, portanto, na produção agropecuária dessas regiões.
+        <br><small style="color:var(--cinza-claro);display:block;margin-top:8px;">
+          Fontes: INPE, MapBiomas Relatório Anual 2023, SOS Mata Atlântica 2023.</small>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SEÇÃO 3 — PRODUÇÃO vs ÁREA (FUNDO ESCURO)
+  ══════════════════════════════════════════════════════════ -->
+  <section class="sec-comparativo" id="comparativo" aria-labelledby="titulo-comp">
+    <div class="container">
+      <p class="section-label reveal">A eficiência que o mundo admira</p>
+      <h2 class="section-titulo reveal" id="titulo-comp">
+        Produzir mais, <span style="color:var(--laranja-claro)">desmatando menos</span>
+      </h2>
+      <p class="section-desc reveal">
+        Enquanto a produção de grãos cresceu mais de 277% desde 1990, a área agricultável 
+        cresceu em ritmo muito menor — graças a tecnologias como o Sistema Plantio Direto, 
+        ILPF e melhoramento genético desenvolvido pela EMBRAPA. O desafio é manter e 
+        ampliar essa eficiência sem ceder à pressão de abertura de novas fronteiras.
+      </p>
+
+      <div class="comp-grid">
+
+        <div class="comp-card positivo reveal">
+          <div class="titulo-card">✅ Ganhos de produtividade (1990–2024)</div>
+
+          <div class="comp-item">
+            <span class="comp-rotulo">Produção de grãos</span>
+            <div class="comp-bar-wrap">
+              <div class="comp-bar-bg"><div class="comp-bar-fill fill-verde" data-largura="100"></div></div>
+              <span class="comp-numero">+277%</span>
+            </div>
+          </div>
+
+          <div class="comp-item">
+            <span class="comp-rotulo">Produtividade da soja (kg/ha)</span>
+            <div class="comp-bar-wrap">
+              <div class="comp-bar-bg"><div class="comp-bar-fill fill-verde" data-largura="85"></div></div>
+              <span class="comp-numero">+85%</span>
+            </div>
+          </div>
+
+          <div class="comp-item">
+            <span class="comp-rotulo">Produtividade do milho (kg/ha)</span>
+            <div class="comp-bar-wrap">
+              <div class="comp-bar-bg"><div class="comp-bar-fill fill-verde" data-largura="90"></div></div>
+              <span class="comp-numero">+90%</span>
+            </div>
+          </div>
+
+          <div class="comp-item">
+            <span class="comp-rotulo">Produção de carne bovina</span>
+            <div class="comp-bar-wrap">
+              <div class="comp-bar-bg"><div class="comp-bar-fill fill-verde" data-largura="100"></div></div>
+              <span class="comp-numero">+200%</span>
+            </div>
+          </div>
+          <small style="color:rgba(240,244,241,0.4);font-size:0.72rem;">Fontes: CONAB, EMBRAPA, IBGE (2024)</small>
+        </div>
+
+        <div class="comp-card negativo reveal">
+          <div class="titulo-card">⚠️ Custo ambiental no mesmo período</div>
+
+          <div class="comp-item">
+            <span class="comp-rotulo">Vegetação nativa perdida (Mha)</span>
+            <div class="comp-bar-wrap">
+              <div class="comp-bar-bg"><div class="comp-bar-fill fill-laranja" data-largura="78"></div></div>
+              <span class="comp-numero">59 Mha</span>
+            </div>
+          </div>
+
+          <div class="comp-item">
+            <span class="comp-rotulo">Cerrado suprimido (1985–2023)</span>
+            <div class="comp-bar-wrap">
+              <div class="comp-bar-bg"><div class="comp-bar-fill fill-laranja" data-largura="70"></div></div>
+              <span class="comp-numero">+100 Mha</span>
+            </div>
+          </div>
+
+          <div class="comp-item">
+            <span class="comp-rotulo">Emissões do desmatamento (GtCO₂)</span>
+            <div class="comp-bar-wrap">
+              <div class="comp-bar-bg"><div class="comp-bar-fill fill-laranja" data-largura="60"></div></div>
+              <span class="comp-numero">~4,8 Gt</span>
+            </div>
+          </div>
+
+          <div class="comp-item">
+            <span class="comp-rotulo">Espécies ameaçadas no Cerrado</span>
+            <div class="comp-bar-wrap">
+              <div class="comp-bar-bg"><div class="comp-bar-fill fill-laranja" data-largura="55"></div></div>
+              <span class="comp-numero">+4.800</span>
+            </div>
+          </div>
+          <small style="color:rgba(240,244,241,0.4);font-size:0.72rem;">Fontes: MapBiomas, SEEG, ICMBio (2023)</small>
+        </div>
+
+      </div>
+
+      <div class="destaque-frase reveal">
+        <span class="numero-grande contador" data-contador="30" data-sufixo="%" data-duracao="1800">0%</span>
+        <p class="explicacao">
+          Estima-se que <strong>pelo menos 30% das pastagens</strong> brasileiras estão 
+          degradadas — representando mais de <strong>50 milhões de hectares</strong> que 
+          poderiam ser recuperados e usados para expansão produtiva 
+          <em>sem derrubar uma única árvore a mais.</em><br>
+          <small style="font-size:0.72rem;opacity:0.6;">Fonte: EMBRAPA / TNC Brasil, 2022</small>
+        </p>
+      </div>
+
+      <!-- Gráfico de barras: produção de grãos -->
+      <div class="chart-section reveal" style="margin-top:2.5rem;">
+        <div class="chart-titulo">Evolução da produção de grãos no Brasil</div>
+        <div class="chart-subtitulo">Safras selecionadas — em milhões de toneladas (Mt) · Fonte: CONAB 2024</div>
+        <div class="bar-chart-wrap">
+          <div class="bar-chart" id="grafico-graos" role="list" aria-label="Gráfico de barras: produção de grãos por safra">
+            <!-- Preenchido pelo script.js -->
+          </div>
+        </div>
+        <p style="font-size:0.72rem;color:rgba(240,244,241,0.35);margin-top:1rem;">
+          * Safras 2022/23 e 2023/24 em laranja indicam os dois maiores recordes históricos.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" style="background:rgba(255,255,255,0.05);"></div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SEÇÃO 4 — BIOMAS EM RISCO
+  ══════════════════════════════════════════════════════════ -->
+  <section class="sec-biomas" id="biomas" aria-labelledby="titulo-biomas">
+    <div class="container">
+      <p class="section-label reveal">Territórios em colapso</p>
+      <h2 class="section-titulo reveal" id="titulo-biomas">
+        Os biomas <span>mais ameaçados</span> pela expansão
+      </h2>
+      <p class="section-desc reveal">
+        Três biomas concentram a maior pressão do agronegócio e da pecuária extensiva. 
+        Cada um abriga espécies únicas, regula o clima regional e fornece serviços 
+        ecossistêmicos indispensáveis à própria agricultura.
+      </p>
+
+      <div class="biomas-grid">
+
+        <!-- Cerrado -->
+        <article class="bioma-card cerrado-card reveal" aria-labelledby="titulo-cerrado">
+          <div class="bioma-card-topo">
+            <h3 class="bioma-card-nome" id="titulo-cerrado">🌿 Cerrado</h3>
+            <p class="bioma-card-area">2,04 milhões km² · Centro-Oeste e Norte</p>
+            <div class="bioma-perda-pct" aria-label="52% da vegetação perdida">52%<small>perdido</small></div>
+          </div>
+          <div class="bioma-card-corpo">
+            <p class="bioma-fato"><strong>Berço das águas:</strong> abastece 8 das 12 regiões hidrográficas do Brasil, incluindo as nascentes do Rio São Francisco e do Pantanal.</p>
+            <p class="bioma-fato"><strong>Biodiversidade:</strong> abriga mais de 11.627 espécies de plantas nativas, 199 de mamíferos e 837 de aves — muitas exclusivas.</p>
+            <p class="bioma-fato"><strong>Pressão:</strong> é o bioma com maior velocidade de desmatamento ativo atualmente. Em 2022, foram derrubados 8.531 km² — recorde desde 2015 (INPE/PRODES).</p>
+            <p class="bioma-fato"><strong>Risco hídrico:</strong> a perda do Cerrado ameaça diretamente as lavouras irrigadas de Minas Gerais, Goiás e Bahia.</p>
+          </div>
+        </article>
+
+        <!-- Amazônia -->
+        <article class="bioma-card amazonia-card reveal" data-delay="100" aria-labelledby="titulo-amazonia">
+          <div class="bioma-card-topo">
+            <h3 class="bioma-card-nome" id="titulo-amazonia">🌳 Amazônia</h3>
+            <p class="bioma-card-area">4,2 milhões km² · Norte e parte do Centro-Oeste</p>
+            <div class="bioma-perda-pct" aria-label="20% da vegetação perdida">20%<small>perdido</small></div>
+          </div>
+          <div class="bioma-card-corpo">
+            <p class="bioma-fato"><strong>Reguladora climática:</strong> a floresta recicla 20 bilhões de toneladas de água por dia — criando os "rios voadores" que irrigam o Sudeste e o Sul do Brasil.</p>
+            <p class="bioma-fato"><strong>Ponto de não retorno:</strong> pesquisadores da USP e INPA estimam que entre 20% e 25% de desmatamento pode tornar irreversível a degradação da floresta.</p>
+            <p class="bioma-fato"><strong>Tendência positiva:</strong> o desmatamento caiu 50% em 2023 em relação a 2022, mas ainda foram desmatados 11.568 km² (INPE/PRODES 2023).</p>
+            <p class="bioma-fato"><strong>Causa principal:</strong> 65% do desmatamento amazônico está ligado à expansão de pastagens e, em menor escala, à agricultura de grãos (MapBiomas, 2023).</p>
+          </div>
+        </article>
+
+        <!-- Mata Atlântica -->
+        <article class="bioma-card mata-card reveal" data-delay="200" aria-labelledby="titulo-mata">
+          <div class="bioma-card-topo">
+            <h3 class="bioma-card-nome" id="titulo-mata">🌲 Mata Atlântica</h3>
+            <p class="bioma-card-area">1,1 milhão km² original · Costa leste</p>
+            <div class="bioma-perda-pct" aria-label="88% da vegetação perdida">88%<small>perdido</small></div>
+          </div>
+          <div class="bioma-card-corpo">
+            <p class="bioma-fato"><strong>Caso extremo:</strong> um dos 25 hotspots de biodiversidade mais ameaçados do planeta. Restam apenas 12% a 16% da cobertura original (SOS Mata Atlântica, 2023).</p>
+            <p class="bioma-fato"><strong>Serviços urbanos:</strong> abastece de água mais de 120 milhões de pessoas — quase 60% da população brasileira — incluindo São Paulo e Rio de Janeiro.</p>
+            <p class="bioma-fato"><strong>Recuperação lenta:</strong> a Lei da Mata Atlântica (11.428/2006) protege os remanescentes, mas a recuperação de áreas degradadas leva décadas.</p>
+            <p class="bioma-fato"><strong>Fragmentação:</strong> 80% dos fragmentos têm menos de 50 hectares — insuficientes para manter populações viáveis de grandes mamíferos.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SEÇÃO 5 — SOLUÇÃO: INTENSIFICAÇÃO SUSTENTÁVEL
+  ══════════════════════════════════════════════════════════ -->
+  <section class="sec-solucao" id="solucao" aria-labelledby="titulo-solucao">
+    <div class="container">
+      <p class="section-label reveal">O caminho possível</p>
+      <h2 class="section-titulo reveal" id="titulo-solucao">
+        Produzir mais sem <span>desmatar mais</span>
+      </h2>
+      <p class="section-desc reveal">
+        O Brasil já provou que é possível aumentar a produção sem expandir a fronteira 
+        agrícola. Tecnologias desenvolvidas por institutos como a EMBRAPA permitem 
+        recuperar áreas degradadas e intensificar o uso de terras já abertas.
+      </p>
+
+      <div class="solucao-intro">
+        <div class="solucao-imagem reveal">
+          <!-- Imagem de domínio público: campo agrícola sustentável -->
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Agriculture_under_the_evening_sun.jpg/1280px-Agriculture_under_the_evening_sun.jpg"
+            alt="Lavoura ao entardecer, representando a agricultura sustentável"
+            loading="lazy"
+            width="640" height="480"
+          />
+        </div>
+
+        <div class="reveal">
+          <ul class="solucao-lista" role="list">
+            <li class="solucao-item" role="listitem">
+              <div class="solucao-icone" aria-hidden="true">🌱</div>
+              <div class="solucao-texto">
+                <strong>Recuperação de Pastagens Degradadas</strong>
+                <p>Pelo menos 50 milhões de hectares de pastagens degradadas poderiam ser recuperados e usados produtivamente, eliminando a necessidade de abrir novas áreas (EMBRAPA/TNC, 2022).</p>
+              </div>
+            </li>
+            <li class="solucao-item" role="listitem">
+              <div class="solucao-icone" aria-hidden="true">🔬</div>
+              <div class="solucao-texto">
+                <strong>ILPF — Integração Lavoura-Pecuária-Floresta</strong>
+                <p>Sistema que combina culturas agrícolas, pastagem e árvores no mesmo espaço. Aumenta a produtividade por hectare, fixa carbono e recupera o solo ao mesmo tempo.</p>
+              </div>
+            </li>
+            <li class="solucao-item" role="listitem">
+              <div class="solucao-icone" aria-hidden="true">💧</div>
+              <div class="solucao-texto">
+                <strong>Agricultura de Precisão</strong>
+                <p>Uso de sensores, drones e dados de satélite para aplicar insumos apenas onde necessário — reduz custos, diminui poluição de rios e aumenta a produtividade.</p>
+              </div>
+            </li>
+            <li class="solucao-item" role="listitem">
+              <div class="solucao-icone" aria-hidden="true">🌍</div>
+              <div class="solucao-texto">
+                <strong>Sistema Plantio Direto (SPD)</strong>
+                <p>Presente em mais de 35 milhões de hectares no Brasil, o SPD evita o revolvimento do solo, retém umidade, reduz erosão e sequestra carbono — mantendo a produtividade.</p>
+              </div>
+            </li>
+            <li class="solucao-item" role="listitem">
+              <div class="solucao-icone" aria-hidden="true">🧬</div>
+              <div class="solucao-texto">
+                <strong>Melhoramento Genético (EMBRAPA)</strong>
+                <p>Variedades como a soja tropical, desenvolvida pela EMBRAPA, foram fundamentais para viabilizar o agronegócio no Cerrado sem precisar avançar indefinidamente sobre a Amazônia.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Gráfico comparativo: área total vs produção -->
+      <div class="chart-section reveal">
+        <div class="chart-titulo" style="color:var(--texto-escuro);">Área plantada (grãos) vs Produção — crescimento comparado</div>
+        <div class="chart-subtitulo">Base 100 = safra 2000/01 · Fonte: CONAB 2024</div>
+        <div class="bar-chart-wrap">
+          <div style="min-width:500px;">
+            <div style="display:grid; grid-template-columns: 90px 1fr 80px 1fr 80px; gap:8px; align-items:center; font-size:0.78rem; font-weight:600; color:var(--cinza); margin-bottom:8px; padding: 0 0 8px; border-bottom:1px solid var(--fundo-escuro);">
+              <span>Safra</span>
+              <span style="color:var(--verde-medio);">Produção (índice)</span>
+              <span></span>
+              <span style="color:var(--cinza);">Área (índice)</span>
+              <span></span>
+            </div>
+
+            <div style="display:grid; grid-template-columns: 90px 1fr 80px 1fr 80px; gap:8px; align-items:center; padding:6px 0; border-bottom:1px solid var(--fundo-escuro);">
+              <span style="font-size:0.8rem;font-weight:600;color:var(--cinza);">2000/01</span>
+              <div style="background:var(--fundo);border-radius:4px;height:18px;overflow:hidden;"><div class="bar-inner verde" data-largura="31" style="height:100%;"></div></div>
+              <span style="font-size:0.78rem;font-weight:700;color:var(--texto-escuro);">100</span>
+              <div style="background:var(--fundo);border-radius:4px;height:18px;overflow:hidden;"><div class="bar-inner" style="background:var(--cinza);height:100%;" data-largura="60"></div></div>
+              <span style="font-size:0.78rem;font-weight:700;color:var(--texto-escuro);">100</span>
+            </div>
+
+            <div style="display:grid; grid-template-columns: 90px 1fr 80px 1fr 80px; gap:8px; align-items:center; padding:6px 0; border-bottom:1px solid var(--fundo-escuro);">
+              <span style="font-size:0.8rem;font-weight:600;color:var(--cinza);">2010/11</span>
+              <div style="background:var(--fundo);border-radius:4px;height:18px;overflow:hidden;"><div class="bar-inner verde" data-largura="50" style="height:100%;"></div></div>
+              <span style="font-size:0.78rem;font-weight:700;color:var(--texto-escuro);">163</span>
+              <div style="background:var(--fundo);border-radius:4px;height:18px;overflow:hidden;"><div class="bar-inner" style="background:var(--cinza);height:100%;" data-largura="73"></div></div>
+              <span style="font-size:0.78rem;font-weight:700;color:var(--texto-escuro);">121</span>
+            </div>
+
+            <div style="display:grid; grid-template-columns: 90px 1fr 80px 1fr 80px; gap:8px; align-items:center; padding:6px 0; border-bottom:1px solid var(--fundo-escuro);">
+              <span style="font-size:0.8rem;font-weight:600;color:var(--cinza);">2020/21</span>
+              <div style="background:var(--fundo);border-radius:4px;height:18px;overflow:hidden;"><div class="bar-inner verde" data-largura="78" style="height:100%;"></div></div>
+              <span style="font-size:0.78rem;font-weight:700;color:var(--texto-escuro);">254</span>
+              <div style="background:var(--fundo);border-radius:4px;height:18px;overflow:hidden;"><div class="bar-inner" style="background:var(--cinza);height:100%;" data-largura="88"></div></div>
+              <span style="font-size:0.78rem;font-weight:700;color:var(--texto-escuro);">147</span>
+            </div>
+
+            <div style="display:grid; grid-template-columns: 90px 1fr 80px 1fr 80px; gap:8px; align-items:center; padding:6px 0;">
+              <span style="font-size:0.8rem;font-weight:600;color:var(--verde-medio);">2023/24</span>
+              <div style="background:var(--fundo);border-radius:4px;height:18px;overflow:hidden;"><div class="bar-inner verde" data-largura="100" style="height:100%;"></div></div>
+              <span style="font-size:0.78rem;font-weight:700;color:var(--verde-medio);">316</span>
+              <div style="background:var(--fundo);border-radius:4px;height:18px;overflow:hidden;"><div class="bar-inner" style="background:var(--cinza);height:100%;" data-largura="100"></div></div>
+              <span style="font-size:0.78rem;font-weight:700;color:var(--cinza);">167</span>
+            </div>
+          </div>
+        </div>
+        <p style="font-size:0.72rem;color:var(--cinza-claro);margin-top:1rem;">
+          A produção cresceu 216% enquanto a área cresceu apenas 67% — diferença explicada pelo ganho de produtividade.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SEÇÃO 6 — MITOS E VERDADES
+  ══════════════════════════════════════════════════════════ -->
+  <section class="sec-mitos" id="mitos" aria-labelledby="titulo-mitos">
+    <div class="container">
+      <p class="section-label reveal">Desmistificando o debate</p>
+      <h2 class="section-titulo reveal" id="titulo-mitos">
+        Mitos & <span>Verdades</span> sobre o agro
+      </h2>
+      <p class="section-desc reveal">
+        O debate sobre agronegócio e meio ambiente é cheio de afirmações imprecisas. 
+        Clique em cada item para conhecer a resposta baseada em dados.
+      </p>
+
+      <div class="accordion-wrap reveal" role="list" aria-label="Perguntas e respostas sobre agronegócio e meio ambiente">
+
+        <div class="accordion-item" role="listitem">
+          <button class="accordion-btn" aria-expanded="false" aria-controls="resp1">
+            <span>❓ "O Brasil precisa desmatar mais para alimentar o mundo."</span>
+            <span class="accordion-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="accordion-conteudo" id="resp1" role="region">
+            <strong>Mito.</strong> O Brasil já tem mais de 50 milhões de hectares de pastagens degradadas 
+            que poderiam ser recuperadas e usadas produtivamente — sem precisar abrir uma única área nova. 
+            Além disso, a EMBRAPA estima que a produtividade brasileira ainda pode dobrar nas áreas já abertas 
+            com o uso adequado de tecnologia. O mundo não precisa do desmatamento brasileiro — precisa de 
+            eficiência e investimento nas terras já abertas. (Fonte: EMBRAPA/TNC, 2022)
+          </div>
+        </div>
+
+        <div class="accordion-item" role="listitem">
+          <button class="accordion-btn" aria-expanded="false" aria-controls="resp2">
+            <span>❓ "A legislação ambiental prejudica a produção agropecuária."</span>
+            <span class="accordion-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="accordion-conteudo" id="resp2" role="region">
+            <strong>Mito parcial.</strong> O Código Florestal Brasileiro (Lei 12.651/2012) exige a manutenção 
+            de Reservas Legais (20% a 80% de cada propriedade, conforme o bioma) e Áreas de Preservação Permanente 
+            (APPs). Estudos da USP e da Agroicone mostram que produtores que cumprem a legislação têm propriedades 
+            com solos mais férteis, regimes hídricos mais estáveis e menor risco a eventos climáticos extremos — 
+            o que beneficia a própria produção no longo prazo. (Fonte: Agroicone, 2020)
+          </div>
+        </div>
+
+        <div class="accordion-item" role="listitem">
+          <button class="accordion-btn" aria-expanded="false" aria-controls="resp3">
+            <span>❓ "O agronegócio brasileiro é o maior vilão das emissões de CO₂."</span>
+            <span class="accordion-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="accordion-conteudo" id="resp3" role="region">
+            <strong>Parcialmente verdadeiro.</strong> O setor de <em>mudança de uso da terra e florestas</em> 
+            (desmatamento) é o maior emissor de gases de efeito estufa no Brasil — responsável por cerca de 
+            46% das emissões nacionais em 2022 (SEEG/OC). A agropecuária em si responde por outros 28%, 
+            principalmente via fermentação entérica do rebanho bovino. Juntos, representam 74% das emissões 
+            brasileiras — o que coloca o Brasil em situação oposta à maioria dos países, onde a indústria 
+            e o transporte lideram. (Fonte: SEEG/Observatório do Clima, 2023)
+          </div>
+        </div>
+
+        <div class="accordion-item" role="listitem">
+          <button class="accordion-btn" aria-expanded="false" aria-controls="resp4">
+            <span>❓ "Preservar florestas não tem impacto econômico relevante."</span>
+            <span class="accordion-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="accordion-conteudo" id="resp4" role="region">
+            <strong>Mito.</strong> Pesquisas da The Nature Conservancy e do IPEA estimam que os serviços 
+            ecossistêmicos da Amazônia — regulação hídrica, polinização, controle de erosão, regulação 
+            climática — valem entre <strong>US$ 317 bilhões e US$ 2,2 trilhões por ano</strong> para a 
+            economia brasileira. A irrigação das lavouras do Mato Grosso, por exemplo, depende diretamente 
+            dos "rios voadores" gerados pela evapotranspiração amazônica. (Fontes: IPEA, TNC Brasil, 2021)
+          </div>
+        </div>
+
+        <div class="accordion-item" role="listitem">
+          <button class="accordion-btn" aria-expanded="false" aria-controls="resp5">
+            <span>❓ "O desmatamento no Brasil está controlado e diminuindo."</span>
+            <span class="accordion-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="accordion-conteudo" id="resp5" role="region">
+            <strong>Parcialmente verdadeiro, mas com ressalvas.</strong> O desmatamento da Amazônia caiu 
+            cerca de 50% em 2023 em relação ao pico de 2022 (INPE/PRODES). Porém, o <strong>Cerrado 
+            atingiu em 2022 o maior índice de supressão desde 2015</strong>, com 8.531 km² desmatados. 
+            Além disso, os números do INPE medem apenas o desmatamento bruto, não considerando a degradação 
+            florestal — que segundo pesquisadores do INPA pode ser tão prejudicial quanto o corte raso. 
+            O cenário melhorou na Amazônia, mas ainda é crítico no Cerrado e Caatinga. (Fontes: INPE/PRODES 2023, MapBiomas 2023)
+          </div>
+        </div>
+
+        <div class="accordion-item" role="listitem">
+          <button class="accordion-btn" aria-expanded="false" aria-controls="resp6">
+            <span>❓ "Tecnologia agrícola sempre resolve — não precisamos nos preocupar."</span>
+            <span class="accordion-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="accordion-conteudo" id="resp6" role="region">
+            <strong>Mito perigoso.</strong> A tecnologia é fundamental, mas não é suficiente sozinha. 
+            Ela precisa ser acompanhada de <strong>políticas públicas, fiscalização eficiente, crédito 
+            para recuperação de pastagens degradadas e incentivos ao produtor que preserva</strong>. 
+            Sem isso, a lógica econômica de curto prazo continuará favorecendo a expansão sobre áreas 
+            nativas. A tecnologia reduz o custo de produzir de forma sustentável — mas não elimina 
+            a necessidade de regulação e governança ambiental. (Fonte: EMBRAPA, Relatório de Sustentabilidade 2023)
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SEÇÃO 7 — CALL TO ACTION
+  ══════════════════════════════════════════════════════════ -->
+  <section class="sec-cta" id="cta" aria-labelledby="titulo-cta">
+    <div class="container">
+      <p class="section-label reveal">O que você pode fazer</p>
+      <h2 class="section-titulo reveal" id="titulo-cta">
+        O futuro sustentável <span style="color:var(--laranja);">começa agora</span>
+      </h2>
+      <p class="cta-desc reveal">
+        Cada escolha importa. Como estudante, consumidor e futuro cidadão, 
+        você pode contribuir para um agronegócio que alimenta o Brasil 
+        sem destruir o que nos sustenta.
+      </p>
+      <div class="cta-acoes reveal">
+        <a href="https://mapbiomas.org" target="_blank" rel="noopener noreferrer" class="btn-cta btn-verde" aria-label="Acessar MapBiomas (abre nova aba)">
+          🗺️ MapBiomas — dados abertos
+        </a>
+        <a href="https://www.embrapa.br" target="_blank" rel="noopener noreferrer" class="btn-cta btn-contorno" aria-label="Acessar EMBRAPA (abre nova aba)">
+          🔬 Pesquisas EMBRAPA
+        </a>
+        <a href="https://sosma.org.br" target="_blank" rel="noopener noreferrer" class="btn-cta btn-contorno" aria-label="Acessar SOS Mata Atlântica (abre nova aba)">
+          🌳 SOS Mata Atlântica
+        </a>
+      </div>
+
+      <!-- Bloco de dicas práticas -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:3rem;text-align:left;" class="reveal">
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:var(--raio-lg);padding:1.25rem;">
+          <div style="font-size:1.5rem;margin-bottom:0.5rem;">🛒</div>
+          <strong style="font-family:var(--fonte-titulo);font-size:0.9rem;color:var(--branco);display:block;margin-bottom:4px;">Consuma consciente</strong>
+          <p style="font-size:0.8rem;color:rgba(240,244,241,0.55);line-height:1.6;">Prefira produtos com selos de certificação ambiental e origem rastreável.</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:var(--raio-lg);padding:1.25rem;">
+          <div style="font-size:1.5rem;margin-bottom:0.5rem;">📢</div>
+          <strong style="font-family:var(--fonte-titulo);font-size:0.9rem;color:var(--branco);display:block;margin-bottom:4px;">Compartilhe dados reais</strong>
+          <p style="font-size:0.8rem;color:rgba(240,244,241,0.55);line-height:1.6;">Combata desinformação sobre desmatamento com fontes confiáveis como INPE e MapBiomas.</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:var(--raio-lg);padding:1.25rem;">
+          <div style="font-size:1.5rem;margin-bottom:0.5rem;">🗳️</div>
+          <strong style="font-family:var(--fonte-titulo);font-size:0.9rem;color:var(--branco);display:block;margin-bottom:4px;">Participe politicamente</strong>
+          <p style="font-size:0.8rem;color:rgba(240,244,241,0.55);line-height:1.6;">Políticas ambientais dependem de cidadãos informados que cobram compromissos dos representantes.</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:var(--raio-lg);padding:1.25rem;">
+          <div style="font-size:1.5rem;margin-bottom:0.5rem;">🌱</div>
+          <strong style="font-family:var(--fonte-titulo);font-size:0.9rem;color:var(--branco);display:block;margin-bottom:4px;">Apoie a ciência agrícola</strong>
+          <p style="font-size:0.8rem;color:rgba(240,244,241,0.55);line-height:1.6;">Pesquisa pública como a da EMBRAPA é o que permite ao Brasil produzir mais sem destruir mais.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       RODAPÉ
+  ══════════════════════════════════════════════════════════ -->
+  <footer role="contentinfo">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-nome">🌿 Agro Forte, Futuro Sustentável</div>
+        <p class="footer-desc">
+          Site educativo desenvolvido como projeto escolar, abordando a relação entre 
+          agronegócio, sustentabilidade e preservação dos biomas brasileiros. 
+          Todos os dados são provenientes de fontes públicas e científicas verificáveis.
+        </p>
+        <span class="tag-agrinho" aria-label="Tag obrigatória Agrinho">agrinho</span>
+      </div>
+      <div>
+        <div class="footer-col-titulo">Fontes</div>
+        <ul class="footer-links">
+          <li><a href="https://mapbiomas.org" target="_blank" rel="noopener noreferrer">MapBiomas</a></li>
+          <li><a href="https://www.inpe.br" target="_blank" rel="noopener noreferrer">INPE / PRODES</a></li>
+          <li><a href="https://www.embrapa.br" target="_blank" rel="noopener noreferrer">EMBRAPA</a></li>
+          <li><a href="https://www.conab.gov.br" target="_blank" rel="noopener noreferrer">CONAB</a></li>
+          <li><a href="https://seeg.eco.br" target="_blank" rel="noopener noreferrer">SEEG / Obs. Clima</a></li>
+          <li><a href="https://sosma.org.br" target="_blank" rel="noopener noreferrer">SOS Mata Atlântica</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-titulo">Seções</div>
+        <ul class="footer-links">
+          <li><a href="#brasil">Brasil no Agro</a></li>
+          <li><a href="#desmate">Desmatamento</a></li>
+          <li><a href="#comparativo">Produção vs Área</a></li>
+          <li><a href="#biomas">Biomas em Risco</a></li>
+          <li><a href="#solucao">Soluções</a></li>
+          <li><a href="#mitos">Mitos & Verdades</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="footer-divider" />
+    <div class="footer-bottom">
+      <span>© <span id="ano-atual">2025</span> · Projeto Agrinho — Educação Digital e Computação</span>
+      <span>Dados: MapBiomas · INPE · CONAB · EMBRAPA · IBGE · SEEG (2023/2024)</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
